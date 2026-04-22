@@ -6,7 +6,7 @@ import viennoiseries from "@/assets/viennoiseries.jpg";
 import patisserie from "@/assets/patisserie.jpg";
 import sandwich from "@/assets/sandwich.jpg";
 import bakerHands from "@/assets/baker-hands.jpg";
-import { Clock, MapPin, Star, Wheat, Croissant, Cake } from "lucide-react";
+import { Clock, MapPin, Star, Wheat, Croissant, Cake, ShoppingBag } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,28 +41,37 @@ function Index() {
           height={1080}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-overlay" />
-        <div className="mx-auto max-w-7xl px-6 pt-32 pb-40 md:pt-44 md:pb-56">
+        {/* darker overlay for legibility */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/55 to-black/75" />
+        <div className="mx-auto max-w-7xl px-6 pt-28 pb-24 md:pt-44 md:pb-56">
           <div className="max-w-2xl text-primary-foreground">
             <div className="mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
               <span className="h-px w-10 bg-gold" />
               Depuis toujours · Massy
             </div>
-            <h1 className="font-display text-5xl font-bold leading-[1.05] md:text-7xl">
+            <h1 className="font-display text-5xl font-bold leading-[1.05] drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)] md:text-7xl">
               L'art du pain,<br />
               <span className="italic text-gold">à la française.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/85 md:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] md:text-lg">
               Au cœur du quartier Gare TGV de Massy, Maison Chopin façonne chaque jour
               pains, viennoiseries et pâtisseries dans la plus pure tradition artisanale.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 to="/carte"
                 className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-primary shadow-elegant transition-transform hover:-translate-y-0.5"
               >
                 Découvrir la carte
               </Link>
+              <a
+                href="https://www.ubereats.com/fr/store/boulangerie-maison-chopin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-elegant transition-transform hover:-translate-y-0.5"
+              >
+                <ShoppingBag className="h-4 w-4" /> Commander sur Uber Eats
+              </a>
               <a
                 href="https://maps.google.com/?q=2+Rue+Florence+Arthaud+91300+Massy"
                 target="_blank"
@@ -74,19 +83,19 @@ function Index() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* info bar */}
-        <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 px-6">
-          <div className="mx-auto grid max-w-5xl gap-px overflow-hidden rounded-2xl bg-border shadow-elegant md:grid-cols-3">
-            <InfoCard icon={<Clock className="h-5 w-5" />} title="Ouvert dès 6h" subtitle="7j/7 — jusqu'à 21h" />
-            <InfoCard icon={<MapPin className="h-5 w-5" />} title="Massy Gare TGV" subtitle="2 Rue Florence Arthaud" />
-            <InfoCard icon={<Star className="h-5 w-5" />} title="4,5 / 5 sur Uber Eats" subtitle="900+ avis clients" />
-          </div>
+      {/* INFO BAR — between hero and savoir-faire, no overlap */}
+      <section className="px-6 -mt-8 md:-mt-14">
+        <div className="mx-auto grid max-w-5xl gap-px overflow-hidden rounded-2xl bg-border shadow-elegant sm:grid-cols-3">
+          <InfoCard icon={<Clock className="h-5 w-5" />} title="Ouvert dès 6h" subtitle="7j/7 — jusqu'à 21h" />
+          <InfoCard icon={<MapPin className="h-5 w-5" />} title="Massy Gare TGV" subtitle="2 Rue Florence Arthaud" />
+          <InfoCard icon={<Star className="h-5 w-5" />} title="4,5 / 5 sur Uber Eats" subtitle="900+ avis clients" />
         </div>
       </section>
 
       {/* SAVOIR-FAIRE */}
-      <section className="px-6 pt-48 pb-24">
+      <section className="px-6 pt-20 pb-24 md:pt-28">
         <div className="mx-auto grid max-w-6xl items-center gap-16 md:grid-cols-2">
           <div className="relative">
             <img
