@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import heroBread from "@/assets/hero-bread.jpg";
+import heroBakery from "@/assets/hero-bakery.jpg";
 import viennoiseries from "@/assets/viennoiseries.jpg";
 import patisserie from "@/assets/patisserie.jpg";
 import sandwich from "@/assets/sandwich.jpg";
@@ -21,8 +22,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "L'art de la boulangerie française à deux pas de la Gare TGV de Massy.",
       },
-      { property: "og:image", content: heroBread },
-      { name: "twitter:image", content: heroBread },
+      { property: "og:image", content: heroBakery },
+      { name: "twitter:image", content: heroBakery },
     ],
   }),
   component: Index,
@@ -34,10 +35,10 @@ function Index() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
         <img
-          src={heroBread}
-          alt="Pains artisanaux Maison Chopin"
+          src={heroBakery}
+          alt="Intérieur de la boulangerie Maison Chopin à Massy"
           width={1920}
-          height={1280}
+          height={1080}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-overlay" />

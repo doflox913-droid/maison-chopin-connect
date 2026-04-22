@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
-import { MapPin, Phone, Clock, Navigation } from "lucide-react";
+import { MapPin, Phone, Clock, Navigation, ShoppingBag } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -63,6 +63,14 @@ function Contact() {
                 className="inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 <Phone className="h-4 w-4" /> Appeler
+              </a>
+              <a
+                href="https://www.ubereats.com/fr/store/boulangerie-maison-chopin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                <ShoppingBag className="h-4 w-4" /> Commander sur Uber Eats
               </a>
             </div>
           </div>
