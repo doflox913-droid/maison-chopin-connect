@@ -86,7 +86,7 @@ function Index() {
       </section>
 
       {/* INFO BAR — between hero and savoir-faire, no overlap */}
-      <section className="px-6 -mt-8 md:-mt-14">
+      <section className="px-6 pt-10 md:pt-14">
         <div className="mx-auto grid max-w-5xl gap-px overflow-hidden rounded-2xl bg-border shadow-elegant sm:grid-cols-3">
           <InfoCard icon={<Clock className="h-5 w-5" />} title="Ouvert dès 6h" subtitle="7j/7 — jusqu'à 21h" />
           <InfoCard icon={<MapPin className="h-5 w-5" />} title="Massy Gare TGV" subtitle="2 Rue Florence Arthaud" />
