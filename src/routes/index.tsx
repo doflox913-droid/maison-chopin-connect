@@ -65,7 +65,7 @@ function Index() {
                 Découvrir la carte
               </Link>
               <a
-                href="https://www.ubereats.com/fr/store/boulangerie-maison-chopin/"
+                href="https://www.ubereats.com/fr/store/boulangerie-maison-chopin/Mh_FYgD1SUGIBZqv3pl2eg?srsltid=AfmBOoqoDPt2brRDJIJ3ZnLyUe8beQDKm9vi1fJhHgawz5TdGwg4rZDi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background shadow-elegant transition-transform hover:-translate-y-0.5"
