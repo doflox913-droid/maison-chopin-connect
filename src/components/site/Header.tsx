@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 
@@ -28,14 +28,18 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
-            <Link
+            <NavLink
               key={n.to}
               to={n.to}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-              activeProps={{ className: "text-primary" }}
+              end={n.to === "/"}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors hover:text-primary ${
+                  isActive ? "text-primary" : "text-foreground/80"
+                }`
+              }
             >
               {n.label}
-            </Link>
+            </NavLink>
           ))}
           <a
             href="tel:0169289107"
@@ -58,15 +62,19 @@ export function Header() {
         <div className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col gap-1 px-6 py-4">
             {nav.map((n) => (
-              <Link
+              <NavLink
                 key={n.to}
                 to={n.to}
+                end={n.to === "/"}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-secondary"
-                activeProps={{ className: "text-primary bg-secondary" }}
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-3 text-sm font-medium hover:bg-secondary ${
+                    isActive ? "text-primary bg-secondary" : "text-foreground/80"
+                  }`
+                }
               >
                 {n.label}
-              </Link>
+              </NavLink>
             ))}
             <a
               href="tel:0169289107"

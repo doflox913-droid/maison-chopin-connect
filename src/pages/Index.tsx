@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { SiteLayout } from "@/components/site/Layout";
 import heroBread from "@/assets/hero-bread.jpg";
 import heroBakery from "@/assets/hero-bakery.jpg";
@@ -8,30 +9,18 @@ import sandwich from "@/assets/sandwich.jpg";
 import bakerHands from "@/assets/baker-hands.jpg";
 import { Clock, MapPin, Star, Wheat, Croissant, Cake, ShoppingBag } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Maison Chopin — Boulangerie artisanale à Massy Gare TGV" },
-      {
-        name: "description",
-        content:
-          "Pains, viennoiseries, pâtisseries et sandwichs préparés chaque matin au cœur de Massy. Ouvert dès 6h, à deux pas de la Gare TGV.",
-      },
-      { property: "og:title", content: "Maison Chopin — Boulangerie à Massy" },
-      {
-        property: "og:description",
-        content: "L'art de la boulangerie française à deux pas de la Gare TGV de Massy.",
-      },
-      { property: "og:image", content: heroBakery },
-      { name: "twitter:image", content: heroBakery },
-    ],
-  }),
-  component: Index,
-});
-
-function Index() {
+export default function Index() {
   return (
     <SiteLayout>
+      <Helmet>
+        <title>Maison Chopin — Boulangerie artisanale à Massy Gare TGV</title>
+        <meta name="description" content="Pains, viennoiseries, pâtisseries et sandwichs préparés chaque matin au cœur de Massy. Ouvert dès 6h, à deux pas de la Gare TGV." />
+        <meta property="og:title" content="Maison Chopin — Boulangerie à Massy" />
+        <meta property="og:description" content="L'art de la boulangerie française à deux pas de la Gare TGV de Massy." />
+        <meta property="og:image" content={heroBakery} />
+        <meta name="twitter:image" content={heroBakery} />
+      </Helmet>
+
       {/* HERO */}
       <section className="relative isolate overflow-hidden">
         <img
@@ -41,7 +30,6 @@ function Index() {
           height={1080}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
-        {/* darker overlay for legibility */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/55 to-black/75" />
         <div className="mx-auto max-w-7xl px-6 pt-28 pb-24 md:pt-44 md:pb-56">
           <div className="max-w-2xl text-primary-foreground">
@@ -85,7 +73,7 @@ function Index() {
         </div>
       </section>
 
-      {/* INFO BAR — between hero and savoir-faire, no overlap */}
+      {/* INFO BAR */}
       <section className="px-6 pt-10 md:pt-14">
         <div className="mx-auto grid max-w-5xl gap-px overflow-hidden rounded-2xl bg-border shadow-elegant sm:grid-cols-3">
           <InfoCard icon={<Clock className="h-5 w-5" />} title="Ouvert dès 6h" subtitle="7j/7 — jusqu'à 21h" />

@@ -1,29 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import { SiteLayout } from "@/components/site/Layout";
 import { MapPin, Phone, Clock, Navigation, ShoppingBag } from "lucide-react";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact & Itinéraire — Maison Chopin Massy Gare TGV" },
-      {
-        name: "description",
-        content:
-          "Adresse, horaires et accès : 2 Rue Florence Arthaud, 91300 Massy — à deux pas de la Gare TGV. Tél. 01 69 28 91 07.",
-      },
-      { property: "og:title", content: "Contact — Maison Chopin Massy" },
-      {
-        property: "og:description",
-        content: "Venez nous rendre visite à Massy, à deux pas de la Gare TGV.",
-      },
-    ],
-  }),
-  component: Contact,
-});
-
-function Contact() {
+export default function Contact() {
   return (
     <SiteLayout>
+      <Helmet>
+        <title>Contact & Itinéraire — Maison Chopin Massy Gare TGV</title>
+        <meta name="description" content="Adresse, horaires et accès : 2 Rue Florence Arthaud, 91300 Massy — à deux pas de la Gare TGV. Tél. 01 69 28 91 07." />
+        <meta property="og:title" content="Contact — Maison Chopin Massy" />
+        <meta property="og:description" content="Venez nous rendre visite à Massy, à deux pas de la Gare TGV." />
+      </Helmet>
+
       <section className="px-6 pt-20 pb-12">
         <div className="mx-auto max-w-4xl text-center">
           <div className="text-xs uppercase tracking-[0.3em] text-gold">Contact</div>

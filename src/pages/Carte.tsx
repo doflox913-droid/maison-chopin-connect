@@ -1,27 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import { SiteLayout } from "@/components/site/Layout";
 import patisserie from "@/assets/patisserie.jpg";
-
-export const Route = createFileRoute("/carte")({
-  head: () => ({
-    meta: [
-      { title: "Notre carte — Maison Chopin Massy" },
-      {
-        name: "description",
-        content:
-          "Découvrez notre carte : pains de tradition, viennoiseries pur beurre, pâtisseries fines, sandwichs et formules midi.",
-      },
-      { property: "og:title", content: "Notre carte — Maison Chopin" },
-      {
-        property: "og:description",
-        content: "Pains, viennoiseries, pâtisseries et formules midi de la Boulangerie Maison Chopin à Massy.",
-      },
-      { property: "og:image", content: patisserie },
-      { name: "twitter:image", content: patisserie },
-    ],
-  }),
-  component: Carte,
-});
 
 const sections = [
   {
@@ -74,9 +53,18 @@ const sections = [
   },
 ];
 
-function Carte() {
+export default function Carte() {
   return (
     <SiteLayout>
+      <Helmet>
+        <title>Notre carte — Maison Chopin Massy</title>
+        <meta name="description" content="Découvrez notre carte : pains de tradition, viennoiseries pur beurre, pâtisseries fines, sandwichs et formules midi." />
+        <meta property="og:title" content="Notre carte — Maison Chopin" />
+        <meta property="og:description" content="Pains, viennoiseries, pâtisseries et formules midi de la Boulangerie Maison Chopin à Massy." />
+        <meta property="og:image" content={patisserie} />
+        <meta name="twitter:image" content={patisserie} />
+      </Helmet>
+
       <section className="relative px-6 pt-20 pb-12">
         <div className="mx-auto max-w-4xl text-center">
           <div className="text-xs uppercase tracking-[0.3em] text-gold">La carte</div>

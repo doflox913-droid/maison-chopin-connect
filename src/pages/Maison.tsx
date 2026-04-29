@@ -1,31 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Helmet } from "react-helmet-async";
 import { SiteLayout } from "@/components/site/Layout";
 import bakerHands from "@/assets/baker-hands.jpg";
 
-export const Route = createFileRoute("/maison")({
-  head: () => ({
-    meta: [
-      { title: "La Maison — Notre histoire | Maison Chopin Massy" },
-      {
-        name: "description",
-        content:
-          "Découvrez l'histoire et les valeurs de la Boulangerie Maison Chopin, ancrée à Massy depuis des années.",
-      },
-      { property: "og:title", content: "La Maison Chopin — Notre histoire" },
-      {
-        property: "og:description",
-        content: "Une boulangerie artisanale au cœur de Massy, pour célébrer le pain et le geste juste.",
-      },
-      { property: "og:image", content: bakerHands },
-      { name: "twitter:image", content: bakerHands },
-    ],
-  }),
-  component: Maison,
-});
-
-function Maison() {
+export default function Maison() {
   return (
     <SiteLayout>
+      <Helmet>
+        <title>La Maison — Notre histoire | Maison Chopin Massy</title>
+        <meta name="description" content="Découvrez l'histoire et les valeurs de la Boulangerie Maison Chopin, ancrée à Massy depuis des années." />
+        <meta property="og:title" content="La Maison Chopin — Notre histoire" />
+        <meta property="og:description" content="Une boulangerie artisanale au cœur de Massy, pour célébrer le pain et le geste juste." />
+        <meta property="og:image" content={bakerHands} />
+        <meta name="twitter:image" content={bakerHands} />
+      </Helmet>
+
       <section className="relative isolate overflow-hidden">
         <img
           src={bakerHands}
