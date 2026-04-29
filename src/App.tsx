@@ -3,6 +3,7 @@ import Index from "./pages/Index";
 import Carte from "./pages/Carte";
 import Maison from "./pages/Maison";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function NotFound() {
   return (
@@ -28,6 +29,8 @@ function NotFound() {
 
 export default function App() {
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/carte" element={<Carte />} />
@@ -35,5 +38,6 @@ export default function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    </>
   );
 }
